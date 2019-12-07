@@ -1,5 +1,5 @@
 {
   "insert_video_id": "Insert video ID",
-  "last_used_id": "Last used id",
-  "continue": "Continue"
+  "continue": "Continue",
+  "insert_id_error": "Id cannot be empty"
 }

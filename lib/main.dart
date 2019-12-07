@@ -1,6 +1,6 @@
 import 'package:chorus/global/assets.dart';
 import 'package:chorus/global/constants.dart';
-import 'package:chorus/screen/inser_id_screen.dart';
+import 'package:chorus/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: const [
         Locale('en'),
       ],
-      home: InsertIdScreen(),
+      home: SplashScreen(),
     );
   }
 
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
               fontFamily: kNotoSansRegularFont,
             ),
           ),
-      scaffoldBackgroundColor: kBackgroundColor,
+      scaffoldBackgroundColor: kBaseBackgroundColor,
     );
   }
 }
