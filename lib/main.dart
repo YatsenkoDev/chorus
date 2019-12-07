@@ -2,6 +2,7 @@ import 'package:chorus/global/assets.dart';
 import 'package:chorus/global/constants.dart';
 import 'package:chorus/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(MyApp());
@@ -9,6 +10,10 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       theme: _buildAppTheme(context),
       localizationsDelegates: [
@@ -33,6 +38,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
       scaffoldBackgroundColor: kBaseBackgroundColor,
+      primaryColor: kChorusColor
     );
   }
 }

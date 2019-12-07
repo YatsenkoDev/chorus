@@ -12,9 +12,9 @@ class ScreenBaseWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const Spacer(flex: 123),
+        const Spacer(),
         Flexible(
-          flex: 608,
+          flex: 6,
           child: Container(
             margin: const EdgeInsets.only(
               left: 35,
@@ -24,15 +24,15 @@ class ScreenBaseWidget extends StatelessWidget {
             child: Center(child: child),
           ),
         ),
-        const Spacer(flex: 103),
+        const Spacer(),
         SvgPicture.asset(
           kChorusLogo,
-          color: kDividerColor,
+          color: kChorusColor,
         ),
         const SizedBox(height: 16),
         const Divider(
           thickness: 5,
-          color: kDividerColor,
+          color: kChorusColor,
           height: 0,
         ),
       ],
