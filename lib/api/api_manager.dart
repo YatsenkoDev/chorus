@@ -15,6 +15,7 @@ class ApiManager {
     }
   }
 
+  @visibleForTesting
   static List<Transcript> parseTranscriptJson(String json) {
     try {
       final Iterable transcriptList = jsonDecode(json);

@@ -51,8 +51,9 @@ class PlayerScreen extends StatelessWidget {
                         return !snapshot.hasError
                             ? AspectRatio(
                                 aspectRatio: snapshot.hasData
-                                    ? snapshot.data.value.aspectRatio
-                                    : 16 / 9,
+                                    ? _calculateRatioForOrientation(context,
+                                        ratio: snapshot.data.value.aspectRatio)
+                                    : _calculateRatioForOrientation(context),
                                 child: snapshot.hasData
                                     ? VideoPlayerWidget(
                                         videoPlayerController: snapshot.data)
@@ -106,4 +107,9 @@ class PlayerScreen extends StatelessWidget {
       ),
     );
   }
+
+  /// Calculates aspect ratio for video player depending
+  /// on the screen proportions
+  double _calculateRatioForOrientation(BuildContext context, {double ratio}) =>
+      (ratio ?? 16 / 9) * (MediaQuery.of(context).size.aspectRatio > 1 ? 2 : 1);
 }

@@ -33,25 +33,27 @@ class PlayerBloc {
   }
 
   void _loadTranscript(String contentId) async {
+    final List<ChatElement> chatElements = [];
     final List<Transcript> transcript =
         await _apiManager.loadTranscript(contentId);
-    transcript.sort();
-    final List<ChatElement> chatElements = [];
-    String speakerName;
-    List<String> messages;
-    for (final Transcript element in transcript) {
-      void updateVariables() {
-        speakerName = element.speaker;
-        messages = [element.snippet];
-      }
+    if (transcript.isNotEmpty) {
+      transcript.sort();
+      String speakerName;
+      List<String> messages;
+      for (final Transcript element in transcript) {
+        void updateVariables() {
+          speakerName = element.speaker;
+          messages = [element.snippet];
+        }
 
-      if (speakerName == null) {
-        updateVariables();
-      } else if (speakerName != element.speaker) {
-        chatElements.add(ChatElement(speakerName, messages));
-        updateVariables();
-      } else {
-        messages.add(element.snippet);
+        if (speakerName == null) {
+          updateVariables();
+        } else if (speakerName != element.speaker) {
+          chatElements.add(ChatElement(speakerName, messages));
+          updateVariables();
+        } else {
+          messages.add(element.snippet);
+        }
       }
     }
     _transcriptSubject.add(chatElements);
