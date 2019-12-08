@@ -17,9 +17,7 @@ class TranscriptElementWidget extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        _Avatar(
-          color: speakerColor,
-        ),
+        _Avatar(color: speakerColor),
         const SizedBox(width: 7),
         Flexible(
           child: Column(

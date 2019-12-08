@@ -1,0 +1,6 @@
+{
+  "insert_video_id": "Введите видео ID",
+  "continue": "Продолжить",
+  "insert_id_error": "Id не может быть пустым",
+  "player_error": "Ошибка при загрузке видео"
+}

@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: const [
         Locale('en'),
+        Locale('ru'),
+        Locale('pl'),
       ],
       home: SplashScreen(),
     );
@@ -38,7 +40,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
       scaffoldBackgroundColor: kBaseBackgroundColor,
-      primaryColor: kChorusColor
+      primaryColor: kChorusColor,
     );
   }
 }

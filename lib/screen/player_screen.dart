@@ -65,6 +65,7 @@ class PlayerScreen extends StatelessWidget {
                                   fontSize: 20,
                                   color: kErrorColor,
                                 ),
+                                textAlign: TextAlign.center,
                               );
                       },
                     ),
@@ -77,7 +78,7 @@ class PlayerScreen extends StatelessWidget {
                             ? ListView.separated(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 13)
-                                        .copyWith(bottom: 53),
+                                        .copyWith(bottom: 53, top: 23),
                                 separatorBuilder: (context, index) =>
                                     const SizedBox(height: 30),
                                 itemCount: snapshot.data.length,
