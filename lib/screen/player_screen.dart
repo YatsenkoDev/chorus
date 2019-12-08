@@ -1,7 +1,9 @@
 import 'package:chorus/bloc/player_bloc.dart';
 import 'package:chorus/global/constants.dart';
 import 'package:chorus/global/global_translations.dart';
+import 'package:chorus/model/chat_element.dart';
 import 'package:chorus/widget/screen_base_widget.dart';
+import 'package:chorus/widget/transcript_element_widget.dart';
 import 'package:chorus/widget/video_player_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -67,7 +69,34 @@ class PlayerScreen extends StatelessWidget {
                       },
                     ),
                   ),
-
+                  Expanded(
+                    child: StreamBuilder<List<ChatElement>>(
+                      stream: playerBloc.transcriptStream,
+                      builder: (context, snapshot) {
+                        return snapshot.hasData
+                            ? ListView.separated(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 13)
+                                        .copyWith(bottom: 53),
+                                separatorBuilder: (context, index) =>
+                                    const SizedBox(height: 30),
+                                itemCount: snapshot.data.length,
+                                itemBuilder: (context, index) {
+                                  final chatElement = snapshot.data[index];
+                                  return TranscriptElementWidget(
+                                    speaker: chatElement.speaker,
+                                    messages: chatElement.messages,
+                                    speakerColor:
+                                        chatElement.speaker == kRepSpeaker
+                                            ? kSpeakerRepColor
+                                            : kSpeakerCustColor,
+                                  );
+                                },
+                              )
+                            : const SizedBox.shrink();
+                      },
+                    ),
+                  ),
                 ],
               );
             },

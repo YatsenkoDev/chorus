@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 //Flow
 const kSplashDelay = 1500;
 const kPreFilledId = '4d79041e-f25f-421d-9e5f-3462459b9934';
+const kCustSpeaker = 'Cust';
+const kRepSpeaker = 'Rep';
 
 //Colors
 const kSpeakerCustColor = Color(0xFFEE6EFF);
