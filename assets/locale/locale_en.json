@@ -1,5 +1,6 @@
 {
   "insert_video_id": "Insert video ID",
   "continue": "Continue",
-  "insert_id_error": "Id cannot be empty"
+  "insert_id_error": "Id cannot be empty",
+  "player_error": "Video loading error"
 }

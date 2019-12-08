@@ -12,4 +12,5 @@ const kBaseBackgroundColor = Color.fromRGBO(247, 247, 247, 1);
 const kTextColor = Color.fromRGBO(51, 51, 51, 1);
 const kChorusColor = Color.fromRGBO(47, 169, 214, 1);
 const kPlayButtonColor = Color(0xCC656889);
+const kErrorColor = Color(0xFFC62828);
 

@@ -1,9 +1,12 @@
 import 'package:chorus/bloc/player_bloc.dart';
+import 'package:chorus/global/constants.dart';
+import 'package:chorus/global/global_translations.dart';
 import 'package:chorus/widget/screen_base_widget.dart';
 import 'package:chorus/widget/video_player_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
+import 'package:chorus/global/strings.dart' as strings;
 
 class PlayerScreen extends StatelessWidget {
   final String contentId;
@@ -43,19 +46,28 @@ class PlayerScreen extends StatelessWidget {
                     child: StreamBuilder<VideoPlayerController>(
                       stream: playerBloc.videoControllerStream,
                       builder: (context, snapshot) {
-                        return AspectRatio(
-                          aspectRatio: snapshot.hasData
-                              ? snapshot.data.value.aspectRatio
-                              : 16 / 9,
-                          child: snapshot.hasData
-                              ? VideoPlayerWidget(
-                                  videoPlayerController: snapshot.data)
-                              : const Center(
-                                  child: CircularProgressIndicator()),
-                        );
+                        return !snapshot.hasError
+                            ? AspectRatio(
+                                aspectRatio: snapshot.hasData
+                                    ? snapshot.data.value.aspectRatio
+                                    : 16 / 9,
+                                child: snapshot.hasData
+                                    ? VideoPlayerWidget(
+                                        videoPlayerController: snapshot.data)
+                                    : const Center(
+                                        child: CircularProgressIndicator()),
+                              )
+                            : Text(
+                                translations.string(strings.playerError),
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: kErrorColor,
+                                ),
+                              );
                       },
                     ),
                   ),
+
                 ],
               );
             },
